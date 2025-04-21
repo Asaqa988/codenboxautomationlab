@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="1" total="2" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2025-04-21T18:44:10 EET" name="Default suite" finished-at="2025-04-21T18:44:18 EET" duration-ms="8447">
+    <groups>
+    </groups>
+    <test started-at="2025-04-21T18:44:10 EET" name="Default test" finished-at="2025-04-21T18:44:18 EET" duration-ms="8447">
+      <class name="codenboxautomationlab1.codenboxautomationlab1.AppTest">
+        <test-method is-config="true" signature="mySetup()[pri:0, instance:codenboxautomationlab1.codenboxautomationlab1.AppTest@35d08e6c]" started-at="2025-04-21T18:44:10 EET" name="mySetup" finished-at="2025-04-21T18:44:16 EET" duration-ms="6236" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- mySetup -->
+        <test-method signature="Dynamic_Dropdown()[pri:0, instance:codenboxautomationlab1.codenboxautomationlab1.AppTest@35d08e6c]" started-at="2025-04-21T18:44:16 EET" name="Dynamic_Dropdown" finished-at="2025-04-21T18:44:18 EET" duration-ms="2178" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Dynamic_Dropdown -->
+      </class> <!-- codenboxautomationlab1.codenboxautomationlab1.AppTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

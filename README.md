@@ -1,130 +1,166 @@
-Codenbox Automation Lab Practice Tests
-This project contains automated test cases using Selenium WebDriver and TestNG for practicing different web elements and actions available on the Codenbox Automation Lab Practice Page.
+🎯 Codenbox Automation Lab Practice Tests
+This project contains automated test cases using Selenium WebDriver and TestNG to practice on different web elements at
+➡️ Codenbox Automation Lab Practice Page.
 
-Table of Contents
-Project Setup
+📋 Table of Contents
+✅ Project Setup
 
-Technologies Used
+🛠️ Technologies Used
 
-Test Cases Overview
+🧪 Test Cases Overview
 
-Detailed Test Cases
+🔍 Detailed Test Cases
 
-Notes
+📝 Notes
 
-Project Setup
-Install Java JDK 8+ and Maven.
+✅ Project Setup
+To run the tests:
 
-Add Selenium and TestNG dependencies to your Maven pom.xml.
+Install Java JDK 8+.
 
-Download and configure ChromeDriver according to your Chrome browser version.
+Install Apache Maven.
 
-Clone or copy the project files.
+Add Selenium and TestNG dependencies in your pom.xml.
 
-Run tests via your IDE or through Maven.
+Download ChromeDriver and set the path correctly.
 
-Technologies Used
+Clone this project or copy the Java code.
+
+Run tests through IDE or Maven CLI.
+
+🛠️ Technologies Used
 Java
 
 Selenium WebDriver
 
 TestNG
 
-Apache Commons IO (for FileUtils)
+Apache Commons IO (for file operations)
 
 Maven (for dependency management)
 
-Test Cases Overview
+🧪 Test Cases Overview
 
-Priority	Test Name	Description	Status
-1	RadioButton()	Selects a random radio button	Disabled
-2	Dynamic_Dropdown()	Selects a country from dynamic dropdown using prefix typing	Disabled
-3	SelectTag()	Selects an option from a <select> dropdown by visible text	Disabled
-4	CheckBoxTag()	Clicks all available checkboxes	Disabled
-5	SwitchWindow()	Handles new window opening and switching	Disabled
-5	SwitchTab()	Handles new tab opening and switching	Disabled
-6	AlertTest()	Tests JavaScript alerts and confirms	Disabled
-7	TableTest()	Parses a table and prints rows containing "Selenium"	Disabled
-8	HideAndShow()	Tests hiding and showing input fields	Disabled
-9	EnableDisable()	Tests enabling and disabling an input field	Disabled
-10	MouseHover()	Performs mouse hover and clicks hover menu options	Disabled
-11	CalenderOpen()	Opens booking calendar and extracts dates	Disabled
-12	Iframe()	Switches to iframe and interacts with elements inside	Disabled
-13	DownloadApkFileAndScreenShot()	Downloads APK and captures a screenshot (runs 5 times)	Enabled
-Detailed Test Cases
-1. RadioButton
-Find all radio buttons and randomly select one.
+⚡ Priority	🧪 Test Name	📖 Description	🛑 Status
+1	RadioButton()	Selects a random radio button	❌ Disabled
+2	Dynamic_Dropdown()	Selects country from dynamic dropdown	❌ Disabled
+3	SelectTag()	Selects option from dropdown by text	❌ Disabled
+4	CheckBoxTag()	Selects all checkboxes	❌ Disabled
+5	SwitchWindow()	Switches between windows	❌ Disabled
+5	SwitchTab()	Switches between tabs	❌ Disabled
+6	AlertTest()	Handles alert and confirm popups	❌ Disabled
+7	TableTest()	Prints rows containing "Selenium"	❌ Disabled
+8	HideAndShow()	Tests hide/show functionality	❌ Disabled
+9	EnableDisable()	Tests enable/disable input fields	❌ Disabled
+10	MouseHover()	Tests mouse hover and actions	❌ Disabled
+11	CalenderOpen()	Opens calendar and prints dates	❌ Disabled
+12	Iframe()	Switches to iframe and interacts	❌ Disabled
+13	DownloadApkFileAndScreenShot()	Downloads file and takes screenshot	✅ Enabled
+🔍 Detailed Test Cases
+🎯 1. RadioButton
+Locate all radio buttons.
 
-Alternatively, specific buttons can be selected by index.
+Randomly click one button.
 
-2. Dynamic_Dropdown
+(Optional) Click a specific button by index.
+
+🎯 2. Dynamic_Dropdown
 Type a random country prefix.
 
-Select the first suggestion by pressing Arrow Down and Enter.
+Select the suggested option via Arrow Down and Enter.
 
-3. SelectTag
-Select an option from a dropdown menu by its visible text (e.g., "API").
+🎯 3. SelectTag
+Locate a <select> tag dropdown.
 
-4. CheckBoxTag
-Find all checkboxes under a specific div and select all of them.
+Select an option by visible text (e.g., API).
 
-5. SwitchWindow
-Opens a new window.
+🎯 4. CheckBoxTag
+Locate all checkboxes within a specific div.
 
-Switches control between parent and child windows.
+Click all available checkboxes.
 
-5. SwitchTab
-Opens a new tab.
+🎯 5. SwitchWindow
+Click on a button to open a new window.
 
-Switches control between the tabs.
+Switch between parent and child windows.
 
-6. AlertTest
-Fills an input field.
+Print the titles of both windows.
 
-Triggers alert and confirm dialogs and handles them (Accept/Dismiss).
+🎯 5. SwitchTab
+Open a new browser tab.
 
-7. TableTest
-Finds a table and prints all rows containing the text "Selenium."
+Switch to the new tab.
 
-8. HideAndShow
-Tests the hide/show functionality of a text input field.
+Return to the original tab.
 
-9. EnableDisable
-Scrolls down.
+🎯 6. AlertTest
+Fill in an input field with a name.
 
-Disables and then enables an input field and types inside it.
+Handle:
 
-10. MouseHover
-Simulates mouse hover to reveal hidden menu options and clicks them.
+Simple Alert (Accept).
 
-11. CalenderOpen
-Opens a calendar page.
+Confirmation Alert (Dismiss).
 
-Extracts and prints all date values from the calendar table.
+🎯 7. TableTest
+Locate a web table.
 
-12. Iframe
-Switches into an iframe.
+Iterate through all cells.
 
-Clicks the burger menu inside the iframe.
+Print cells containing the keyword "Selenium".
 
-13. DownloadApkFileAndScreenShot
-Clicks a link to download APK files.
+🎯 8. HideAndShow
+Test Hide button to hide a text box.
 
-Takes a screenshot of the current screen and saves it with a timestamp.
+Test Show button to show it back.
 
-Notes
-invocationCount = 5 on DownloadApkFileAndScreenShot means the test will repeat 5 times.
+🎯 9. EnableDisable
+Scroll down the page.
 
-All tests are initially disabled (enabled = false) except the last one.
+Disable a text field.
 
-To enable a test, set enabled = true in the @Test annotation.
+Enable the text field again.
 
-Screenshots are saved in the src/test/ScreenShot/ directory with filenames based on the current timestamp.
+Enter text into the now enabled field.
 
-Important Reminder
-Always make sure the ChromeDriver matches your Chrome browser version.
+🎯 10. MouseHover
+Hover over a button to reveal hidden menu items.
 
-Tests that involve window/tab switching or file downloading may require extra WebDriver configurations depending on your local setup.
+Click Top and Reload menu items.
 
-Would you also like me to generate a simple pom.xml sample that matches this project if you want it fully plug-and-play? 🚀
-(Just say yes)
+🎯 11. CalenderOpen
+Open Booking Calendar page.
+
+Extract and print all date values from the calendar table.
+
+🎯 12. Iframe
+Switch into an iframe.
+
+Click the burger menu inside the iframe.
+
+🎯 13. DownloadApkFileAndScreenShot
+Click a link to download APK files.
+
+Take a screenshot of the page.
+
+Save the screenshot with the current date and time as filename.
+
+➡️ This test is executed 5 times (invocationCount = 5).
+
+📝 Notes
+✅ Only DownloadApkFileAndScreenShot is enabled by default.
+
+➡️ To run any other test, set enabled = true inside the @Test annotation.
+
+📁 Screenshots are saved in src/test/ScreenShot/ directory.
+
+⚠️ Ensure that your ChromeDriver version matches your installed Chrome browser.
+
+🧹 Clean up old screenshots regularly to avoid clutter.
+
+⏳ File download and window/tab switching may need extra timeouts depending on machine speed.
+
+🚀 Happy Testing!
+Would you also like me to create a "visual example" showing how the folder structure might look (src/test/java/...) if you are preparing it as a GitHub project?
+(It would make it even cleaner!) 🎯
+Just say yes if you want it!

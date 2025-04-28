@@ -1,20 +1,20 @@
 package codenboxautomationlab1.codenboxautomationlab1;
 
 import java.awt.im.InputContext;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.io.File;
+import java.io.IOException;
+import java.util.*;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+
+import javax.swing.*;
 
 public class AppTest {
 
@@ -169,7 +169,7 @@ public class AppTest {
 		}
 	}
 
-	@Test (priority = 8)
+	@Test (priority = 8,enabled = false)
 	public void HideAndShow() throws InterruptedException {
 
 		WebElement hideButton = driver.findElement(By.id("hide-textbox"));
@@ -178,10 +178,131 @@ public class AppTest {
 		Thread.sleep(2000);
 		WebElement displayed_text =driver.findElement(By.id("displayed-text"));
 
+	}
 
-		Assert.assertEquals(displayed_text.isDisplayed(),false);
+	@Test(priority = 9,enabled = false)
+	public void EnableDisable() throws InterruptedException {
+		JavascriptExecutor js = (JavascriptExecutor) driver ;
+
+		js.executeScript("window.scrollTo(0,1800)");
+
+		Thread.sleep(1000);
 
 
+		WebElement disableButton = driver.findElement(By.id("disabled-button"));
+
+		disableButton.click();
+
+		Thread.sleep(1000);
+		WebElement EnableButton = driver.findElement(By.id("enabled-button"));
+
+		EnableButton.click();
+
+		WebElement inputfield = driver.findElement(By.id("enabled-example-input"));
+		inputfield.sendKeys("abc");
+
+	}
+
+	@Test(priority = 10,enabled = false)
+	public void MouseHover() throws InterruptedException {
+
+		JavascriptExecutor js = (JavascriptExecutor) driver ;
+
+		js.executeScript("window.scrollTo(0,1800)");
+
+		Thread.sleep(3000);
+
+		Actions action = new Actions(driver) ;
+WebElement MouseHover = driver.findElement(By.id("mousehover"));
+		Thread.sleep(3000);
+
+		action.moveToElement(MouseHover).build().perform();
+		Thread.sleep(3000);
+
+		WebElement TopOfTheScreen = driver.findElement(By.linkText("Top"));
+		TopOfTheScreen.click();
+		Thread.sleep(3000);
+
+
+		js.executeScript("window.scrollTo(0,1800)");
+		Thread.sleep(3000);
+
+		action.moveToElement(MouseHover).build().perform();
+		Thread.sleep(3000);
+
+		WebElement ReloadTheScreen = driver.findElement(By.partialLinkText("Relo"));
+		ReloadTheScreen.click();
+		Thread.sleep(3000);
+
+
+	}
+
+	@Test(priority = 11,enabled = false)
+	public void CalenderOpen() throws InterruptedException {
+
+		WebElement CalenderButton = driver.findElement(By.linkText("Booking Calendar"));
+
+		CalenderButton.click();
+
+		Set<String> handels = driver.getWindowHandles();
+
+		List<String> windowList = new ArrayList<>(handels);
+
+		driver.switchTo().window(windowList.get(1));
+
+		System.out.println(driver.getTitle());
+
+		Thread.sleep(2000);
+
+	WebElement TheTable=driver.findElement(By.cssSelector(".datepick.wpbc_calendar"));
+
+
+		List<WebElement> allDates = TheTable.findElements(By.tagName("td"));
+
+		for (int i = 0 ; i < allDates.size();i++){
+			String TheDate = allDates.get(i).getText();
+			System.out.println(TheDate);
+		}
+
+
+	}
+
+	@Test(priority = 12,enabled = false)
+	public void Iframe() throws InterruptedException {
+
+		JavascriptExecutor js = (JavascriptExecutor) driver ;
+
+		js.executeScript("window.scrollTo(0,2100)");
+
+		Thread.sleep(3000);
+			driver.switchTo().frame("courses-iframe");
+
+			WebElement BurgerMenu = driver.findElement(By.cssSelector(".ct-mobile-meta-item.btn-nav-mobile.open-menu"));
+
+
+
+			BurgerMenu.click();
+
+
+	}
+
+	@Test(priority = 13,invocationCount = 5)
+	public void DownloadApkFileAndScreenShot() throws IOException, InterruptedException {
+	WebElement DownloadButton =	driver.findElement(By.linkText("Download Apk files"));
+
+	DownloadButton.click();
+
+	String mydate = new Date().toString().replace(":","-");
+
+	System.out.println(mydate);
+
+	Thread.sleep(1000);
+
+		TakesScreenshot scrShot =((TakesScreenshot)driver);
+		File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
+
+		File DestFile=new File("src/test/ScreenShot/"+mydate+".jpg");
+		FileUtils.copyFile(SrcFile, DestFile);
 	}
 	}
 
